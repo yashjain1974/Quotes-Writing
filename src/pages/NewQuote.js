@@ -1,7 +1,15 @@
+import QuoteForm from "../components/quotes/QuoteForm";
+
+import { useState } from "react";
 const NewQuote = () => {
+  const [addquote, setAddquote] = useState("");
+  const onAddData = (quotedata) => {
+    setAddquote(quotedata);
+  };
+  console.log(addquote);
   return (
     <section>
-      <h1>Quote page</h1>
+      <QuoteForm onAddQuote={onAddData}></QuoteForm>
     </section>
   );
 };

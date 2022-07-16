@@ -34,4 +34,5 @@
 .nav a:active,
 .nav a.active {
   color: #e6fcfc;
+  list-style:none;
 }
