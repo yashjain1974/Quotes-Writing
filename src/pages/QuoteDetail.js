@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { Route, Link,useRouteMatch } from "react-router-dom";
 import Comments from "../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
 import NoQuotesFound from "../components/quotes/NoQuotesFound";
@@ -13,6 +13,7 @@ const DUMMY_DATA = [
 ];
 const QuoteDetail = () => {
   const paramId = useParams();
+  const match=useRouteMatch();
   const quote = DUMMY_DATA.find((quote) => quote.id === paramId.quoteId);
   if (!quote) {
     return <NoQuotesFound></NoQuotesFound>;
@@ -23,8 +24,18 @@ const QuoteDetail = () => {
         text={quote.text}
         author={quote.author}
       ></HighlightedQuote>
+      <Route path={`${match.path}`} exact>
+        <div className="centered">
+          <Link
+            className="btn--flat"
+            to={`${match.url}/comments`}
+          >
+            Comment Here
+          </Link>
+        </div>
+      </Route>
 
-      <Route path={`/quotes/${paramId.quoteId}/comments`}>
+      <Route path={`${match.path}/comments`}>
         <Comments></Comments>
       </Route>
     </section>
