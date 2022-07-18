@@ -5,8 +5,11 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background-color: #e7f8f8;
+  z-index: 10;
 }
+
+
+
 
 .centered {
   margin: 3rem auto;
@@ -14,18 +17,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .focused {
   font-size: 3rem;
   font-weight: bold;
-  color: white;
+  color: rgb(242, 231, 231);
 }
 
 .btn {
   text-decoration: none;
-  background-color: teal;
-  color: white;
+  background-color: rgb(232, 242, 242);
+  color: rgb(41, 5, 5);
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
   border: 1px solid teal;
@@ -41,7 +45,7 @@ body {
 .btn--flat {
   cursor: pointer;
   font: inherit;
-  color: teal;
+  color: rgb(7, 52, 52);
   border: none;
   background-color: none;
   text-decoration: none;
