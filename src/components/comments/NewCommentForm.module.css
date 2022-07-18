@@ -43,3 +43,7 @@
 .actions button {
   font-size: 1.25rem;
 }
+
+.invalid {
+  color: red;
+}

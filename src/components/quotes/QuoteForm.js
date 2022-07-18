@@ -10,12 +10,22 @@ const QuoteForm = (props) => {
   const authorInputRef = useRef();
   const textInputRef = useRef();
   const [isEntering, setIsEntering] = useState(false);
+  const [isValidauthor, setIsvalidauthor] = useState(true);
+  const [isValidText, setIsvalidText] = useState(true);
 
   function submitFormHandler(event) {
     event.preventDefault();
 
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
+    if (enteredAuthor.trim().length === 0 || enteredAuthor === "") {
+      setIsvalidauthor(false);
+      return;
+    }
+    if (enteredText.trim().length === 0 || enteredText === "") {
+      setIsvalidText(false);
+      return;
+    }
 
     // optional: Could validate here
 
@@ -49,10 +59,16 @@ const QuoteForm = (props) => {
           <div className={classes.control}>
             <label htmlFor="author">Author</label>
             <input type="text" id="author" ref={authorInputRef} />
+            {!isEntering && !isValidauthor && (
+              <p className={classes.invalid}>Field must not be blank</p>
+            )}
           </div>
           <div className={classes.control}>
             <label htmlFor="text">Text</label>
             <textarea id="text" rows="5" ref={textInputRef}></textarea>
+            {!isEntering && !isValidText && (
+              <p className={classes.invalid}>Field must not be blank</p>
+            )}
           </div>
           <div className={classes.actions}>
             <button onClick={finishHandlingFunction} className="btn">
