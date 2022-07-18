@@ -18,13 +18,13 @@ import { getSingleQuote } from "../lib/api";
 const QuoteDetail = () => {
   const paramId = useParams();
   const match = useRouteMatch();
+  const { quoteId } = paramId;
   const {
     sendRequest,
     status,
     data: loadedQuote,
     error,
   } = useHttp(getSingleQuote, true);
-  const { quoteId } = paramId;
 
   useEffect(() => {
     sendRequest(quoteId);
@@ -49,7 +49,7 @@ const QuoteDetail = () => {
         text={loadedQuote.text}
         author={loadedQuote.author}
       ></HighlightedQuote>
-      <Route path={`${match.path}`} exact>
+      <Route path={match.path} exact>
         <div className="centered">
           <Link className="btn--flat" to={`${match.url}/comments`}>
             Comment Here
