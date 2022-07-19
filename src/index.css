@@ -38,8 +38,9 @@ body {
 
 .btn:hover,
 .btn:active {
-  background-color: #11acac;
+  background-color: #000303;
   border-color: #11acac;
+  color: rgb(234, 216, 216);
 }
 
 .btn--flat {

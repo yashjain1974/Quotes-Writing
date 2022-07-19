@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { FaCaretDown } from "react-icons/fa";
+import { FaCaretUp } from "react-icons/fa";
 
 import QuoteItem from "./QuoteItem";
 import classes from "./QuoteList.module.css";
@@ -29,7 +31,12 @@ const QuoteList = (props) => {
     <Fragment>
       <div className={classes.sorting}>
         <button onClick={onChangeSorting}>
-          Sort {isSortingAscending ? "Descending" : "Ascending"}
+          {isSortingAscending ? (
+            <FaCaretDown></FaCaretDown>
+          ) : (
+            <FaCaretUp></FaCaretUp>
+          )}{" "}
+          Sort {isSortingAscending ? `Descending ` : "Ascending"}
         </button>
       </div>
       <ul className={classes.list}>
