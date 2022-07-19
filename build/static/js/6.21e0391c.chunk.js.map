@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/NotFoundpge.js"],"names":["NotFoundpage","className"],"mappings":"qJAGeA,UAHM,WACnB,OAAO,oBAAIC,UAAU,WAAd,0BACR,C","file":"static/js/6.21e0391c.chunk.js","sourcesContent":["const NotFoundpage = () => {\r\n  return <h1 className=\"centered\">404 Not found</h1>;\r\n};\r\nexport default NotFoundpage;\r\n"],"sourceRoot":""}
